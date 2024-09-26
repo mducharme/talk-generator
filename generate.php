@@ -15,7 +15,7 @@ function getfilename($index, $text)
 function generate($index, $voice_id, $text)
 {
 	$API_URL = 'https://api.elevenlabs.io/v1/text-to-speech/';
-	$API_KEY = 'sk_2f8543fe2f48b052bb939582d30da43fdde64996b5a59369';
+	$API_KEY = file_get_contents("API_KEY.txt");
 	$API_VOICES = [
 		'narrator' => 'cxWJJLEFcK0W1OkOu4S6',
 		'fred' => 'DW1YBkrcZi5MiGbTCyWf',
