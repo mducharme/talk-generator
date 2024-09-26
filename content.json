@@ -2,12 +2,12 @@
     {
         "id": "0-00-00",
         "voice": "narrator2",
-        "text": "...Introduction"
+        "text": "...Introduction\u00a0"
     },
     {
         "id": "0-00-01",
         "voice": "narrator",
-        "text": "Today, we are excited to share the captivating world of Locomotive, \r\n\t\ta digital-first design agency that thrives at the intersection of design, code, and human interactions, crafting purposeful brand and digital experiences for amazing clients and organizations around the world."
+        "text": "Today, we are excited to share the captivating world of Locomotive,\na digital-first design agency that thrives at the intersection of design, code, and human interactions, crafting purposeful brand and digital experiences for amazing clients and organizations around the world."
     },
     {
         "id": "0-01-01",
@@ -32,7 +32,7 @@
     {
         "id": "0-01-05",
         "voice": "fred",
-        "text": "Okay, interesting. Revive and surpass, setting new standards? Let?s dig in just a little more on the pillars of this Renaissance and how they actually connect with the Renaissance we?re experiencing today:"
+        "text": "Okay, interesting. Revive and surpass, setting new standards. Let's dig in just a little more on the pillars of this Renaissance and how they actually connect with the Renaissance we're experiencing today:"
     },
     {
         "id": "0-01-06",
@@ -42,31 +42,31 @@
     {
         "id": "0-01-07",
         "voice": "mat",
-        "text": "Does Renaissance mean Innovation?\r\n\t\tAnd what is innovation? We believe that innovation is nothing incomprehensible: Innovation lies in \"our capacity to adapt\"... To adapt, or die."
+        "text": "Does Renaissance mean Innovation?\n\nAnd what is innovation? We believe that innovation is nothing incomprehensible: Innovation lies in \"our capacity to adapt\"... To adapt, or die."
     },
     {
         "id": "0-02-01",
         "voice": "narrator",
-        "text": "As we embark on this journey together, we invite you to witness the magic when design, code, and human ingenuity converge. Thank you for joining us, and welcome into the world of Locomotive."
+        "text": "As we embark on this journey together, we invite you to witness the magic when design , code, and human ingenuity converge. Thank you for joining us, and welcome into the world of Locomotive."
     },
     {
         "id": "0-02-02",
         "voice": "fred",
-        "text": "I am Fr\u00e9d\u00e9ric, founding partner and head of creative at Locomotive. I am glad to be here today with my fellow friend, colleague and partner Mathieu, who helped us forge the technological vision of the agency from the very beginning."
+        "text": "I am Fr\u00e9d\u00e9ric, founding partner and head of creative at Locomotive.\u00a0\n\n\nI am glad to be here today with my fellow friend, colleague and partner Mathieu, who helped us forge the technological vision of the agency from the very beginning."
     },
     {
         "id": "0-02-03",
         "voice": "mat",
-        "text": "I am Mathieu, but you may call me Mat. I'm partner and technical director at Locomotive, where I've been since its early beginnings. I'm likewise happy to share this stage with my visionary friend Fred.\n\n"
+        "text": "I am Mathieu, but you may call me Mat. I'm partner and technical director at Locomotive, where I've been since its early beginnings.\u00a0\n\nI'm likewise happy to share this stage with my visionary friend Fred.\n\n"
     },
     {
-        "id": "0-02-03",
+        "id": "0-02-04",
         "text": "... and I am LISA, Locomotive Interactive Super Assistant.",
         "voice": null
     },
     {
-        "id": "0-02-04",
-        "text": "And what about Locomotive? We are a digital-first design agency based in beautiful Montreal, Quebec, Canada.\nWe are 3 partners of complementary backgrounds, self-proclaimed The Triforce, running a small team of 30 talented professionals, in 3 fields of expertise: Design, Development, Operations. All under one roof.",
+        "id": "0-02-05",
+        "text": "And what about Locomotive? We are a digital-first design agency based in beautiful Montreal, Quebec, Canada.\n\nWe are 3 partners of complementary backgrounds, self-proclaimed The Triforce, running a small team of 30 talented professionals, in 3 fields of expertise: Design, Development, Operations.\n\u00a0\nAll under one roof.",
         "voice": null
     },
     {
@@ -77,7 +77,7 @@
     {
         "id": "1-00-01",
         "voice": "narrator",
-        "text": "We are living through a digital renaissance, a transformative period where design is not just evolving but revolutionizing. \r\n\t\tIt propels our desire to create more innovative, more accessible, more inclusive, more connected ? brand experiences."
+        "text": "We are living through a digital renaissance, a transformative period where design is not just evolving but revolutionizing.\n\u00a0\nIt propels our desire to create more innovative, more accessible, more inclusive, more connected brand experiences."
     },
     {
         "id": "1-00-02",
@@ -92,7 +92,7 @@
     {
         "id": "1-01-01",
         "voice": "fred",
-        "text": "The resurgence of design culture is driving unprecedented levels of innovation.\r\n\t\tToday?s design landscape prioritizes creativity, functionality, and accessibility, first and foremost. \r\n\t\tThis shift is fundamentally changing entire industries. \r\n\t\tFrom startups to traditional sectors, every industry is experiencing a renaissance in design that drives progress (and nurtures creativity) within these organizations."
+        "text": "The resurgence of design culture is driving unprecedented levels of innovation.\n\nToday?s design landscape prioritizes creativity, functionality, and accessibility, first and foremost.\n\nThis shift is fundamentally changing entire industries.\n\nFrom startups to traditional sectors, every industry is experiencing a renaissance in design that drives progress (and nurtures creativity) within these organizations."
     },
     {
         "id": "1-01-02",
@@ -102,27 +102,27 @@
     {
         "id": "1-01-03",
         "voice": "mat",
-        "text": "?We can rely on design to innovate?"
+        "text": "We can rely on design to innovate"
     },
     {
         "id": "1-02-01",
         "voice": "fred",
-        "text": "Talking about traditional sectors, design culture is making more significant progress into traditionally conservative industries such as healthcare, banking and finance, to name just a few. \r\n\t\tThese sectors, once known for their rigid and uninspired approaches, are now also embracing design-driven transformation.\r\n\t\tThis is a refreshing change, signaling a broader acceptance of design as a crucial factor in driving industry evolution and improving brand engagement."
+        "text": "Talking about traditional sectors, design culture is making more significant progress into traditionally conservative industries such as healthcare, banking and finance, to name just a few.\n\u00a0\nThese sectors, once known for their rigid and uninspired approaches, are now also embracing design-driven transformation.\n\nThis is a refreshing change, signaling a broader acceptance of design as a crucial factor in driving industry evolution and improving brand engagement."
     },
     {
         "id": "1-02-02",
         "voice": "mat",
-        "text": "?We can rely on design to reinvent ourselves?"
+        "text": "?We can rely on design to reinvent ourselves\""
     },
     {
         "id": "1-03-01",
         "voice": "fred",
-        "text": "This shift is also about empowering people, the ?user?. \r\n\t\tEveryone becomes the hero. In fact, businesses or industries that have successfully reinvented themselves (through design thinking) demonstrate how effective design can elevate user experience and reshape industry landscapes. \r\n\t\tHere are some notable examples: Wealthsimple, a canadian bank, Uber, Airbnb, etc."
+        "text": "This shift is also about empowering people, the ?user?.\n\nEveryone becomes the hero. In fact, businesses or industries that have successfully reinvented themselves (through design thinking) demonstrate how effective design can elevate user experience and reshape industry landscapes.\n\u00a0\nHere are some notable examples: Wealthsimple, a canadian bank, Uber, Airbnb, etc."
     },
     {
         "id": "1-03-02",
         "voice": "fred",
-        "text": "These examples highlight how businesses in competitive fields like insurance or banking are also experiencing a renaissance (or should we call it an all out war?) (human advice vs web service) and need to rely more on differentiating themselves through unique design approaches. \r\n\t\tThe David & Goliath Metaphor: A lot of new self-serve online business-models have been reaching the market in the past 10-years, flooding the customer with new offers (Power to the People; Wealthsimple, etc.). \r\n\t\tWhile long-standing brands are often stubborn and slow with change, they all need to adapt to a new reality now.\r\n\t\tWhile a lot of other factors come into play, those who rely on good UX and design seem to be the ones who stand out more in the present era."
+        "text": "These examples highlight how businesses in competitive fields like insurance or banking are also experiencing a renaissance (or should we call it an all out war?) (human advice vs web service) and need to rely more on differentiating themselves through unique design approaches.\n\u00a0\nThe David & Goliath Metaphor: A lot of new self-serve online business-models have been reaching the market in the past 10-years, flooding the customer with new offers (Power to the People; Wealthsimple, etc.).\nWhile long-standing brands are often stubborn and slow with change, they all need to adapt to a new reality now.\n\nWhile a lot of other factors come into play, those who rely on good UX and design seem to be the ones who stand out more in the present era."
     },
     {
         "id": "1-03-03",
@@ -132,37 +132,37 @@
     {
         "id": "1-04-01",
         "voice": "fred",
-        "text": "Design serves as a bridge connecting the rich heritage of past design movements with the innovations of the future. \r\n\t\tIt?s a dynamic interplay that allows us to keep learning from historical design trends while integrating new technologies, tools and methods. \r\n\t\tThis bridge facilitates the evolution in design thinking and the conservation of heritage, while helping shape the future of digital design and broader cultural trends."
+        "text": "Design serves as a bridge connecting the rich heritage of past design movements with the innovations of the future.\n\u00a0\nIt?s a dynamic interplay that allows us to keep learning from historical design trends while integrating new technologies, tools and methods.\n\nThis bridge facilitates the evolution in design thinking and the conservation of heritage, while helping shape the future of digital design and broader cultural trends."
     },
     {
         "id": "1-04-02",
         "voice": "mat",
-        "text": "?We can rely on design to connect the past, present and future.?"
+        "text": "We can rely on design to connect the past, present and future."
     },
     {
         "id": "1-05-01",
         "voice": "fred",
-        "text": "Success is increasingly being redefined by design excellence rather than traditional metrics like KPIs and ROI. \r\n\t\tPurposeful design that evokes emotions and creates genuine connections with users is proving to be far more effective than outdated practices like dark patterns and aggressive online sales tactics, often minimizing the importance of design."
+        "text": "Success is increasingly being redefined by design excellence rather than traditional metrics like KPIs and ROI.\n\u00a0\nPurposeful design that evokes emotions and creates genuine connections with users is proving to be far more effective than outdated practices like dark patterns and aggressive online sales tactics, often minimizing the importance of design."
     },
     {
         "id": "1-05-02",
         "voice": "fred",
-        "text": "Aiming for design that resonates with users and meets their needs results in more meaningful and lasting outcomes for brands. \r\n\t\tThis approach moves beyond superficial metrics, focusing instead on creating authentic, engaging experiences."
+        "text": "Aiming for design that resonates with users and meets their needs results in more meaningful and lasting outcomes for brands.\n\u00a0\nThis approach moves beyond superficial metrics, focusing instead on creating authentic, engaging experiences."
     },
     {
         "id": "1-05-03",
         "voice": "fred",
-        "text": "We know, one can?t live without the other, but as organizations, studios or brands, finding the right balance between business objectives and design integrity is key."
+        "text": "We know, one can't live without the other, but as organizations, studios or brands, finding the right balance between business objectives and design integrity is key."
     },
     {
         "id": "1-05-04",
         "voice": "fred",
-        "text": "Design and success are deeply interconnected. \r\n\t\tEmbracing design thinking within your organization is essential for achieving new standards of excellence and creating impactful, user-centric solutions."
+        "text": "Design and success are deeply interconnected.\n\u00a0\nEmbracing design thinking within your organization is essential for achieving new standards of excellence and creating impactful, user-centric solutions."
     },
     {
         "id": "1-05-05",
         "voice": "mat",
-        "text": "?We can rely on design to be successful.?"
+        "text": "We can rely on design to be successful."
     },
     {
         "id": "2-00-00",
@@ -187,7 +187,7 @@
     {
         "id": "2-01-03",
         "voice": "fred",
-        "text": "?We can rely on code to generate lasting value.?"
+        "text": "We can rely on code to generate lasting value."
     },
     {
         "id": "2-02-01",
@@ -327,92 +327,87 @@
     {
         "id": "3-01-01",
         "voice": "fred",
-        "text": "An Environment for growth\r\n\t\tProximity creates culture, and culture nurtures talent. "
+        "text": "An Environment for growth\n\nProximity creates culture, and culture nurtures talent."
     },
     {
         "id": "3-01-02",
         "voice": "fred",
-        "text": "Since the very beginning, we?ve committed to staying small?no more than 30 people. \r\n\t\tThis allows us to maintain a personal, engaging work environment and avoid losing our essence."
+        "text": "Since the very beginning, we?ve committed to staying small?no more than 30 people.\n\u00a0\nThis allows us to maintain a personal, engaging work environment and avoid losing our essence."
     },
     {
         "id": "3-01-03",
         "voice": "fred",
-        "text": "To grow your business without adding numbers, we focused on quality. \r\n\t\tAttracting top talent requires an environment where they can thrive. \r\n\tOur culture is built on proximity, transparency, and support, ensuring we deliver quality work without compromising our people or clients."
+        "text": "To grow your business without adding numbers, we focused on quality.\n\u00a0\nAttracting top talent requires an environment where they can thrive.\n\nOur culture is built on proximity, transparency, and support, ensuring we deliver quality work without compromising our people or clients."
     },
     {
         "id": "3-01-04",
         "voice": "fred",
-        "text": "?We can rely on culture to create an environment for growth?"
+        "text": "We can rely on culture to create an environment for growth"
     },
     {
         "id": "3-02-01",
         "voice": "mat",
-        "text": "Make it a Journey\r\n\tAs managers and owners, our role goes beyond delivering results?it?s about creating meaningful experiences for everyone involved. "
-    },
-    {
-        "id": "3-02-02",
-        "voice": "mat",
-        "text": "The journey, both in each project and the broader relationships we build, is what makes our work special.\r\n\tWe focus not only on the end product but on how we get there. "
+        "text": "Make it a Journey\n\nAs managers and owners, our role goes beyond delivering results?it?s about creating meaningful experiences for everyone involved.\n\n\nThe journey, both in each project and the broader relationships we build, is what makes our work special.\n\nWe focus not only on the end product but on how we get there.\n"
     },
     {
         "id": "3-02-03",
         "voice": "mat",
-        "text": "By ensuring our clients feel valued and our team enjoys the process, we create a positive, purpose-driven environment. \r\n\tWhen the experience is fulfilling, the results naturally follow."
+        "text": "By ensuring our clients feel valued and our team enjoys the process, we create a positive, purpose-driven environment.\n\u00a0\nWhen the experience is fulfilling, the results naturally follow."
     },
     {
         "id": "3-02-04",
         "voice": "mat",
-        "text": "?We can rely on culture to make every endeavor a journey?"
+        "text": "We can rely on culture to make every endeavor a journey"
     },
     {
         "id": "3-03-01",
         "voice": "fred",
-        "text": "Collaborative Chemistry\r\n\t\tA passion project is just the start. Real success comes from galvanizing both your team and the client?s. "
+        "text": "Collaborative Chemistry\n\nA passion project is just the start. Real success comes from galvanizing both your team and the client's."
     },
     {
         "id": "3-03-02",
         "voice": "fred",
-        "text": "When both sides work seamlessly together, driven by shared passion, the results are extraordinary. \r\n\t\tCareful curation of the right talent ensures the perfect mix of skills and vision to make it happen."
+        "text": "When both sides work seamlessly together, driven by shared passion, the results are extraordinary.\n\u00a0\nCareful curation of the right talent ensures the perfect mix of skills and vision to make it happen."
     },
     {
         "id": "3-03-03",
         "voice": "fred",
-        "text": "?We can rely on culture to nurture collaboration?"
+        "text": "We can rely on culture to nurture collaboration"
     },
     {
         "id": "3-04-01",
         "voice": "mat",
-        "text": "The Power of Attitude\r\n\t\t(But) Great collaboration starts with the right attitude. It?s not just about talent?it?s how someone contributes to the team?s success. \r\n\t\tWhen hiring or working with clients, always seek those who align with your values and prioritize the group?s success over personal gain."
+        "text": "The Power of Attitude\n\n(But) Great collaboration starts with the right attitude. It's not just about talent - it's how someone contributes to the team?s success.\n\nWhen hiring or working with clients, always seek those who align with your values and prioritize the group?s success over personal gain."
     },
     {
         "id": "3-04-02",
         "voice": "mat",
-        "text": "The right attitude drives collaboration, fosters growth, and lifts the entire team toward the project?s vision."
+        "text": "The right attitude drives collaboration, fosters growth, and lifts the entire team toward the project's vision."
     },
     {
         "id": "3-04-03",
         "voice": "mat",
-        "text": "As Keith Ferrazzi (best-selling author and entrepreneur), which we actually don?t really know, but we liked the quote?  \r\n\t\t?Success is about working with people, not against them.? So yeah, it?s all about the attitude."
+        "text": "As Keith Ferrazzi (best-selling author and entrepreneur), which we actually don't really know, but we liked the quote:\n\n?Success is about working with people, not against them.?\u00a0\n\n\nSo yeah, it?s all about the attitude."
     },
     {
         "id": "3-04-04",
         "voice": "mat",
-        "text": "?We can rely on culture to elevate true leadership?"
+        "text": "We can rely on culture to elevate true leadership"
     },
     {
         "id": "3-05-01",
         "voice": "fred",
-        "text": "Be Brave and Say Yes\r\n\t\tTaking on projects with low or no budget has been crucial to our agency?s growth. \r\n\t\tBy saying yes to these opportunities?often for friends or causes we believe in?we?ve been able to experiment, innovate, and build our reputation. "
+        "text": "Be Brave and Say Yes\n\nTaking on projects with low or no budget has been crucial to our agency?s growth.\n\nBy saying yes to these opportunitiesoften for friends or causes we believe in?we?ve been able to experiment, innovate, and build our reputation."
     },
     {
         "id": "3-05-02",
         "voice": "fred",
-        "text": "These ventures, though not always profitable, allowed us creative freedom and led to bigger opportunities.\r\n\t\tSo no matter the kind of organization, brand of studio, embrace the risks; they could define your path and elevate your success."
+        "text": "These ventures, though not always profitable, allowed us creative freedom and led to bigger opportunities.\n\nSo no matter the kind of organization, brand of studio, embrace the risks; they could define your path and elevate your success."
     },
     {
         "id": "3-05-03",
         "voice": "fred",
-        "text": "?We can rely on culture to be brave?"
+        "text": "We can rely on culture to be brave"
     },
     {
         "id": "4-00-00",
@@ -437,7 +432,7 @@
     {
         "id": "5-01-02",
         "voice": "mat",
-        "text": "We can rely on code: to generate lasting value,\tto establish connections, to open new possibilities, to bring harmony, and to spark wonder and creativity"
+        "text": "We can rely on code:\u00a0\nto generate lasting value,\u00a0\nto establish connections,\u00a0\nto open new possibilities,\nto bring harmony,\u00a0\nand to spark wonder and creativity"
     },
     {
         "id": "5-01-03",
