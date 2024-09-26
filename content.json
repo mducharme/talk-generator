@@ -1,0 +1,447 @@
+[
+    {
+        "id": "0-00-00",
+        "voice": "narrator2",
+        "text": "...Introduction"
+    },
+    {
+        "id": "0-00-01",
+        "voice": "narrator",
+        "text": "Today, we are excited to share the captivating world of Locomotive, \r\n\t\ta digital-first design agency that thrives at the intersection of design, code, and human interactions, crafting purposeful brand and digital experiences for amazing clients and organizations around the world."
+    },
+    {
+        "id": "0-01-01",
+        "voice": "mat",
+        "text": "Buongiorno, Bonjour, Hello everyone and welcome to our talk: \"Adapt or Die: When Design, Code & People Converge. Or how to survive the Renaissance.\""
+    },
+    {
+        "id": "0-01-02",
+        "voice": "fred",
+        "text": "We're very excited to be here with you today, but before introducing ourselves and the agency, let's go through today's topic.\n\n\nFollowing the brief, we've been asked to talk about \"DIGITAL\" RENAISSANCE"
+    },
+    {
+        "id": "0-01-03",
+        "voice": "fred",
+        "text": "Hey LISA, what is Renaissance?"
+    },
+    {
+        "id": "0-01-04",
+        "voice": "narrator",
+        "text": "Renaissance is a transformative period in European history during the 15th and 16th centuries, marking a shift from the Middle Ages to modernity. \r\n\t\tIt was characterized by an effort to revive and surpass the achievements of classical antiquity, pushing boundaries and setting new standards."
+    },
+    {
+        "id": "0-01-05",
+        "voice": "fred",
+        "text": "Okay, interesting. Revive and surpass, setting new standards? Let?s dig in just a little more on the pillars of this Renaissance and how they actually connect with the Renaissance we?re experiencing today:"
+    },
+    {
+        "id": "0-01-06",
+        "voice": "fred",
+        "text": "The Renaissance was a period of creativity and \"artistic innovations\", experimenting with new techniques. It was also about \"scientific inquiries\" and \"humanism\", which focussed less on religion and more on what it is to be human, what is real."
+    },
+    {
+        "id": "0-01-07",
+        "voice": "mat",
+        "text": "Does Renaissance mean Innovation?\r\n\t\tAnd what is innovation? We believe that innovation is nothing incomprehensible: Innovation lies in \"our capacity to adapt\"... To adapt, or die."
+    },
+    {
+        "id": "0-02-01",
+        "voice": "narrator",
+        "text": "As we embark on this journey together, we invite you to witness the magic when design, code, and human ingenuity converge. Thank you for joining us, and welcome into the world of Locomotive."
+    },
+    {
+        "id": "0-02-02",
+        "voice": "fred",
+        "text": "I am Fr\u00e9d\u00e9ric, founding partner and head of creative at Locomotive. I am glad to be here today with my fellow friend, colleague and partner Mathieu, who helped us forge the technological vision of the agency from the very beginning."
+    },
+    {
+        "id": "0-02-03",
+        "voice": "mat",
+        "text": "I am Mathieu, but you may call me Mat. I'm partner and technical director at Locomotive, where I've been since its early beginnings. I'm likewise happy to share this stage with my visionary friend Fred.\n\n"
+    },
+    {
+        "id": "0-02-03",
+        "text": "... and I am LISA, Locomotive Interactive Super Assistant.",
+        "voice": null
+    },
+    {
+        "id": "0-02-04",
+        "text": "And what about Locomotive? We are a digital-first design agency based in beautiful Montreal, Quebec, Canada.\nWe are 3 partners of complementary backgrounds, self-proclaimed The Triforce, running a small team of 30 talented professionals, in 3 fields of expertise: Design, Development, Operations. All under one roof.",
+        "voice": null
+    },
+    {
+        "id": "1-00-00",
+        "voice": "narrator2",
+        "text": "...Chapter 1: Design"
+    },
+    {
+        "id": "1-00-01",
+        "voice": "narrator",
+        "text": "We are living through a digital renaissance, a transformative period where design is not just evolving but revolutionizing. \r\n\t\tIt propels our desire to create more innovative, more accessible, more inclusive, more connected ? brand experiences."
+    },
+    {
+        "id": "1-00-02",
+        "voice": "mat",
+        "text": "Because the world has changed (a lot). Business and teamwork dynamics completely shifted into something called ?decentralized? for many, where your very colleague could live on the other side of the globe? What a challenge. But that?s the context of today."
+    },
+    {
+        "id": "1-00-03",
+        "voice": "mat",
+        "text": "So why do we think design is such an important pillar to survive this new Renaissance?"
+    },
+    {
+        "id": "1-01-01",
+        "voice": "fred",
+        "text": "The resurgence of design culture is driving unprecedented levels of innovation.\r\n\t\tToday?s design landscape prioritizes creativity, functionality, and accessibility, first and foremost. \r\n\t\tThis shift is fundamentally changing entire industries. \r\n\t\tFrom startups to traditional sectors, every industry is experiencing a renaissance in design that drives progress (and nurtures creativity) within these organizations."
+    },
+    {
+        "id": "1-01-02",
+        "voice": "fred",
+        "text": "Some examples of design as a driver of innovation\r\n\t\tFashion: Prada VR Experience.\r\n\t\tEntertainment: Spotify & Netflix Personalized Experience.\r\n\t\tEducational: Duolingo Gamified Language Learning."
+    },
+    {
+        "id": "1-01-03",
+        "voice": "mat",
+        "text": "?We can rely on design to innovate?"
+    },
+    {
+        "id": "1-02-01",
+        "voice": "fred",
+        "text": "Talking about traditional sectors, design culture is making more significant progress into traditionally conservative industries such as healthcare, banking and finance, to name just a few. \r\n\t\tThese sectors, once known for their rigid and uninspired approaches, are now also embracing design-driven transformation.\r\n\t\tThis is a refreshing change, signaling a broader acceptance of design as a crucial factor in driving industry evolution and improving brand engagement."
+    },
+    {
+        "id": "1-02-02",
+        "voice": "mat",
+        "text": "?We can rely on design to reinvent ourselves?"
+    },
+    {
+        "id": "1-03-01",
+        "voice": "fred",
+        "text": "This shift is also about empowering people, the ?user?. \r\n\t\tEveryone becomes the hero. In fact, businesses or industries that have successfully reinvented themselves (through design thinking) demonstrate how effective design can elevate user experience and reshape industry landscapes. \r\n\t\tHere are some notable examples: Wealthsimple, a canadian bank, Uber, Airbnb, etc."
+    },
+    {
+        "id": "1-03-02",
+        "voice": "fred",
+        "text": "These examples highlight how businesses in competitive fields like insurance or banking are also experiencing a renaissance (or should we call it an all out war?) (human advice vs web service) and need to rely more on differentiating themselves through unique design approaches. \r\n\t\tThe David & Goliath Metaphor: A lot of new self-serve online business-models have been reaching the market in the past 10-years, flooding the customer with new offers (Power to the People; Wealthsimple, etc.). \r\n\t\tWhile long-standing brands are often stubborn and slow with change, they all need to adapt to a new reality now.\r\n\t\tWhile a lot of other factors come into play, those who rely on good UX and design seem to be the ones who stand out more in the present era."
+    },
+    {
+        "id": "1-03-03",
+        "voice": "mat",
+        "text": "?We can rely on design to empower people?"
+    },
+    {
+        "id": "1-04-01",
+        "voice": "fred",
+        "text": "Design serves as a bridge connecting the rich heritage of past design movements with the innovations of the future. \r\n\t\tIt?s a dynamic interplay that allows us to keep learning from historical design trends while integrating new technologies, tools and methods. \r\n\t\tThis bridge facilitates the evolution in design thinking and the conservation of heritage, while helping shape the future of digital design and broader cultural trends."
+    },
+    {
+        "id": "1-04-02",
+        "voice": "mat",
+        "text": "?We can rely on design to connect the past, present and future.?"
+    },
+    {
+        "id": "1-05-01",
+        "voice": "fred",
+        "text": "Success is increasingly being redefined by design excellence rather than traditional metrics like KPIs and ROI. \r\n\t\tPurposeful design that evokes emotions and creates genuine connections with users is proving to be far more effective than outdated practices like dark patterns and aggressive online sales tactics, often minimizing the importance of design."
+    },
+    {
+        "id": "1-05-02",
+        "voice": "fred",
+        "text": "Aiming for design that resonates with users and meets their needs results in more meaningful and lasting outcomes for brands. \r\n\t\tThis approach moves beyond superficial metrics, focusing instead on creating authentic, engaging experiences."
+    },
+    {
+        "id": "1-05-03",
+        "voice": "fred",
+        "text": "We know, one can?t live without the other, but as organizations, studios or brands, finding the right balance between business objectives and design integrity is key."
+    },
+    {
+        "id": "1-05-04",
+        "voice": "fred",
+        "text": "Design and success are deeply interconnected. \r\n\t\tEmbracing design thinking within your organization is essential for achieving new standards of excellence and creating impactful, user-centric solutions."
+    },
+    {
+        "id": "1-05-05",
+        "voice": "mat",
+        "text": "?We can rely on design to be successful.?"
+    },
+    {
+        "id": "2-00-00",
+        "voice": "narrator2",
+        "text": "...Chapter 2: Code"
+    },
+    {
+        "id": "2-00-01",
+        "voice": "narrator",
+        "text": "We?ve witnessed a revolution in recent years: no-code, low-code, AI-generated code, etc. Tools that make coding more accessible than ever. The democratization of coding means anyone can experiment. \r\n\t\tBut the question remains: how will mastering code help you thrive in this new digital renaissance?"
+    },
+    {
+        "id": "2-01-01",
+        "voice": "mat",
+        "text": "If design is the language, then code is the structure?the architecture that holds it all together. In many ways, code is everything. It?s the foundation of our digital world, and without it, nothing would function.\r\n\t\tBut in the age of \"press-a-button\" websites, do we still need engineers?\r\n\t\tWell, I stand here as a programmer in a room full of designers, and I?m going to preach for my tribe."
+    },
+    {
+        "id": "2-01-02",
+        "voice": "mat",
+        "text": "Those new tools? Yes, they?re amazing. They make quick, powerful development easy. But here?s the thing: the true value of code today is in how it lets us push beyond those tools, to circumvent their limitations.\r\n\t\tAs technology evolves, code becomes more refined, more tailored to the specific needs of each project. It?s the key to unlocking solutions that canned tools simply can?t handle.\r\n\t\tCode solves problems. Without it, everything feels the same?stuck in the same box. But with code, engineers make a project stand out with unique functionality."
+    },
+    {
+        "id": "2-01-03",
+        "voice": "fred",
+        "text": "?We can rely on code to generate lasting value.?"
+    },
+    {
+        "id": "2-02-01",
+        "voice": "mat",
+        "text": "So going back to those no-code, low-code or generated-code tools?\r\n\t\tThey?re raising the bar, sure. When a function gets simplified into an easy-to-use interface, it no longer needs to be coded from scratch. At that point, it?s all about customization. \r\n\t\tOur role as programmers is shifting more toward personalizing and fine-tuning these tools. We?re enabling that ?power to the people? moment?making complex functionality accessible to everyone."
+    },
+    {
+        "id": "2-02-02",
+        "voice": "mat",
+        "text": "These tools are also fantastic for experimentation and prototyping. Sure, Figma is great, but now we have tools that go beyond just design?they create actual, production-ready websites from a UI. \r\n\t\tPersonally, I?ve started leaning on these tools, focusing my time on more specific backend tasks, where my expertise is, while AI assistants like Copilot help bridge the gaps, especially with frontend tasks like generating custom CSS."
+    },
+    {
+        "id": "2-02-03",
+        "voice": "mat",
+        "text": "What used to take me days or even weeks can now be done in a single, intense night of AI-assisted coding. That?s a huge liberation of time.\r\n\t\tEfficiency isn?t just about speed; it?s about freeing us to experiment, iterate, and test more ideas."
+    },
+    {
+        "id": "2-02-04",
+        "voice": "fred",
+        "text": "?We can rely on code to improve quality of life.?"
+    },
+    {
+        "id": "2-03-01",
+        "voice": "mat",
+        "text": "What does small-scale innovation mean for us? It?s about staying nimble while staying relevant in the global conversation."
+    },
+    {
+        "id": "2-03-02",
+        "voice": "mat",
+        "text": "Small innovations are the foundation for big innovations. \r\n\t\tThink of them as the stepping stones that eventually lead to major achievements, like how countless small advancements helped put humans on the moon."
+    },
+    {
+        "id": "2-03-03",
+        "voice": "mat",
+        "text": "The impact is cumulative. \r\n\t\tSmall changes over time lead to big transformations, like compound interest growing steadily."
+    },
+    {
+        "id": "2-03-04",
+        "voice": "mat",
+        "text": "This approach drives continuous improvement. \r\n\t\tAlways asking: how can we do this better?"
+    },
+    {
+        "id": "2-03-05",
+        "voice": "mat",
+        "text": "Small-scale innovations also make us adaptable, resilient, and reduce the risks that come with larger leaps. \r\n\t\tPlus, they offer immediate benefits, keeping the momentum going."
+    },
+    {
+        "id": "2-03-06",
+        "voice": "fred",
+        "text": "?We can rely on code to open new possibilities.?"
+    },
+    {
+        "id": "2-04-01",
+        "voice": "mat",
+        "text": "In tech, balance is the key to innovation. Every decision is a trade-off, and finding the right balance keeps us moving forward."
+    },
+    {
+        "id": "2-04-02",
+        "voice": "mat",
+        "text": "Creativity vs. Functionality. \r\n\t\tKnowing when to push creative boundaries and when to prioritize practicality. Innovation is exciting, but if it doesn?t work, it doesn?t matter. \r\n\t\tThe challenge is balancing bold ideas with solutions that simply get the job done."
+    },
+    {
+        "id": "2-04-03",
+        "voice": "mat",
+        "text": "Adherence to Standards vs. Prototyping.\r\n\t\tStandards provide reliability and structure, while prototyping allows for fast, iterative exploration. \r\n\t\tWhen do we stick to tried-and-true methods, and when do we bend the rules to experiment and innovate?"
+    },
+    {
+        "id": "2-04-04",
+        "voice": "mat",
+        "text": "Experience vs. Ease-of-Use.\r\n\t\tExperienced users crave powerful tools, but new users need simplicity. \r\n\t\tThe trick is designing for both, ensuring your product caters to experts without alienating beginners."
+    },
+    {
+        "id": "2-04-05",
+        "voice": "mat",
+        "text": "Performance vs. Aesthetics.\r\n\t\tFast performance makes a product efficient, but a visually striking design makes it memorable. \r\n\t\tHow do we balance speed and beauty without sacrificing one for the other?"
+    },
+    {
+        "id": "2-04-06",
+        "voice": "mat",
+        "text": "Scalability vs. Immediate Needs.\r\n\t\tPlanning for the future is critical, but today?s problems need solving too. \r\n\t\tBalancing scalability with addressing immediate requirements is key to building solutions that grow without neglecting current demands."
+    },
+    {
+        "id": "2-04-07",
+        "voice": "mat",
+        "text": "Everything depends on the context. Be zen. Find balance."
+    },
+    {
+        "id": "2-04-08",
+        "voice": "fred",
+        "text": "?We can rely on code to bring harmony.?"
+    },
+    {
+        "id": "2-05-01",
+        "voice": "mat",
+        "text": "Code is Fun\r\n\t\tWe often think of code as structure and function. \r\n\t\tBut coding exercises like creating fluid animations, micro-animations, or 3D shaders show just how inherently creative it can be. \r\n\t\tThese tasks blend logic with art, transforming static elements into dynamic experiences."
+    },
+    {
+        "id": "2-05-02",
+        "voice": "mat",
+        "text": "In reality, all code is creative. Even the most technical challenges rely on problem-solving, which is the essence of creativity."
+    },
+    {
+        "id": "2-05-03",
+        "voice": "mat",
+        "text": "Grady Booch, one of the creators of UML, said this now-famous quote: \r\n\t\t?The function of good software is to make the complex appear to be simple.? \r\n\t\tThis doesn?t just apply to engineering?it?s the heart of design, too. It shows how closely aligned designers and engineers really are."
+    },
+    {
+        "id": "2-05-04",
+        "voice": "mat",
+        "text": "Code is Magic\r\n\t\tCode has the power to transform ideas into reality. \r\n\t\tIt takes the invisible and makes it tangible?whether through animations, immersive interactions, or solving complex problems. With each line of code, we unlock new possibilities and push the boundaries of what?s possible. \r\n\t\tIt?s the magic that sparks wonder and creativity in everything we build."
+    },
+    {
+        "id": "2-05-05",
+        "voice": "fred",
+        "text": "?We can rely on code to spark wonder and creativity.?"
+    },
+    {
+        "id": "3-00-00",
+        "voice": "narrator2",
+        "text": "...Chapter 3: People"
+    },
+    {
+        "id": "3-00-01",
+        "voice": "fred",
+        "text": "Design and code, while essential in our craft, they are only means of expression. That?s why we firmly believe that by putting people-first, we can craft our very best work."
+    },
+    {
+        "id": "3-00-02",
+        "voice": "narrator",
+        "text": "So, how do we create a work culture going through this new Renaissance, in a completely revolutionized workplace?"
+    },
+    {
+        "id": "3-00-03",
+        "voice": "fred",
+        "text": "Good question. There are a few things we prioritize"
+    },
+    {
+        "id": "3-01-01",
+        "voice": "fred",
+        "text": "An Environment for growth\r\n\t\tProximity creates culture, and culture nurtures talent. "
+    },
+    {
+        "id": "3-01-02",
+        "voice": "fred",
+        "text": "Since the very beginning, we?ve committed to staying small?no more than 30 people. \r\n\t\tThis allows us to maintain a personal, engaging work environment and avoid losing our essence."
+    },
+    {
+        "id": "3-01-03",
+        "voice": "fred",
+        "text": "To grow your business without adding numbers, we focused on quality. \r\n\t\tAttracting top talent requires an environment where they can thrive. \r\n\tOur culture is built on proximity, transparency, and support, ensuring we deliver quality work without compromising our people or clients."
+    },
+    {
+        "id": "3-01-04",
+        "voice": "fred",
+        "text": "?We can rely on culture to create an environment for growth?"
+    },
+    {
+        "id": "3-02-01",
+        "voice": "mat",
+        "text": "Make it a Journey\r\n\tAs managers and owners, our role goes beyond delivering results?it?s about creating meaningful experiences for everyone involved. "
+    },
+    {
+        "id": "3-02-02",
+        "voice": "mat",
+        "text": "The journey, both in each project and the broader relationships we build, is what makes our work special.\r\n\tWe focus not only on the end product but on how we get there. "
+    },
+    {
+        "id": "3-02-03",
+        "voice": "mat",
+        "text": "By ensuring our clients feel valued and our team enjoys the process, we create a positive, purpose-driven environment. \r\n\tWhen the experience is fulfilling, the results naturally follow."
+    },
+    {
+        "id": "3-02-04",
+        "voice": "mat",
+        "text": "?We can rely on culture to make every endeavor a journey?"
+    },
+    {
+        "id": "3-03-01",
+        "voice": "fred",
+        "text": "Collaborative Chemistry\r\n\t\tA passion project is just the start. Real success comes from galvanizing both your team and the client?s. "
+    },
+    {
+        "id": "3-03-02",
+        "voice": "fred",
+        "text": "When both sides work seamlessly together, driven by shared passion, the results are extraordinary. \r\n\t\tCareful curation of the right talent ensures the perfect mix of skills and vision to make it happen."
+    },
+    {
+        "id": "3-03-03",
+        "voice": "fred",
+        "text": "?We can rely on culture to nurture collaboration?"
+    },
+    {
+        "id": "3-04-01",
+        "voice": "mat",
+        "text": "The Power of Attitude\r\n\t\t(But) Great collaboration starts with the right attitude. It?s not just about talent?it?s how someone contributes to the team?s success. \r\n\t\tWhen hiring or working with clients, always seek those who align with your values and prioritize the group?s success over personal gain."
+    },
+    {
+        "id": "3-04-02",
+        "voice": "mat",
+        "text": "The right attitude drives collaboration, fosters growth, and lifts the entire team toward the project?s vision."
+    },
+    {
+        "id": "3-04-03",
+        "voice": "mat",
+        "text": "As Keith Ferrazzi (best-selling author and entrepreneur), which we actually don?t really know, but we liked the quote?  \r\n\t\t?Success is about working with people, not against them.? So yeah, it?s all about the attitude."
+    },
+    {
+        "id": "3-04-04",
+        "voice": "mat",
+        "text": "?We can rely on culture to elevate true leadership?"
+    },
+    {
+        "id": "3-05-01",
+        "voice": "fred",
+        "text": "Be Brave and Say Yes\r\n\t\tTaking on projects with low or no budget has been crucial to our agency?s growth. \r\n\t\tBy saying yes to these opportunities?often for friends or causes we believe in?we?ve been able to experiment, innovate, and build our reputation. "
+    },
+    {
+        "id": "3-05-02",
+        "voice": "fred",
+        "text": "These ventures, though not always profitable, allowed us creative freedom and led to bigger opportunities.\r\n\t\tSo no matter the kind of organization, brand of studio, embrace the risks; they could define your path and elevate your success."
+    },
+    {
+        "id": "3-05-03",
+        "voice": "fred",
+        "text": "?We can rely on culture to be brave?"
+    },
+    {
+        "id": "4-00-00",
+        "voice": "narrator2",
+        "text": "...Chapter 4: Case study"
+    },
+    {
+        "id": "5-00-00",
+        "voice": "narrator2",
+        "text": "Final chapter. Goodbye."
+    },
+    {
+        "id": "5-00-01",
+        "voice": "narrator",
+        "text": "Today's insights remind us that true innovation often stems from the synergy of design and code, enhanced by the human touch.\n\u00a0\nBy embracing small-scale innovations and the stories behind them, we can harness the incredible potential that arises when heart, design, and technology come together.\u00a0\n\n\nThank you for joining us on this journey."
+    },
+    {
+        "id": "5-01-01",
+        "voice": "fred",
+        "text": "We can rely on design:\u00a0\nto innovate,\u00a0\nto reinvent ourselves,\u00a0\nto empower people,\u00a0\nto connect the past and future,\u00a0\nand to drive success"
+    },
+    {
+        "id": "5-01-02",
+        "voice": "mat",
+        "text": "We can rely on code: to generate lasting value,\tto establish connections, to open new possibilities, to bring harmony, and to spark wonder and creativity"
+    },
+    {
+        "id": "5-01-03",
+        "voice": "fred",
+        "text": "We can rely on culture:\nto create an environment for growth,\nto make every endeavor a journey\nto nurture a collaborative environment within our team,\nto elevate true leadership, and\nto be brave!\n"
+    }
+]

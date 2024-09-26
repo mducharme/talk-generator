@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn.save {
+  background-color: #28a745;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn.save:hover {
+  background-color: #218838;
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  cursor: move;
+  transition: background-color 0.2s ease;
+}
+
+.item.dragging {
+  background-color: #f0f0f0; /* Light grey background for dragged item */
+  opacity: 0.7; /* Slightly transparent */
+}
+
+.item input {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.item textarea {
+  margin-right: 10px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.item select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.item button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.item button:hover {
+  background-color: #c82333;
+}
+
+.id-input {
+  width: 100px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+pre {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.text-editable {
+  padding: 10px;
+  border: 1px solid #ccc;
+  min-height: 40px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none; /* Removes the blue outline when focused */
+  cursor: text;
+}
+
+.text-editable:focus {
+  border-color: #007bff; /* Blue border when focused */
+  background-color: #f0f8ff;
+}
