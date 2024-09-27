@@ -194,7 +194,7 @@ function generateIdentifier(currentId) {
   }
 
   // Return the new incremented ID
-  return `${newPart0.toString().padStart(2, "0")}-${newPart1.toString().padStart(2, "0")}-${newPart2.toString().padStart(2, "0")}`;
+  return `${newPart0.toString()}-${newPart1.toString().padStart(2, "0")}-${newPart2.toString().padStart(2, "0")}`;
 }
 
 // Function to reorder items after drag-and-drop
