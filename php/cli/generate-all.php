@@ -1,10 +1,12 @@
 <?php
 (PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])) && die('cli only');
 
-require_once '../functions.php';
+$DIR = dirname(__FILE__);
+require_once $DIR.'/../functions.php';
 
-
-$content = json_decode(file_get_contents('../data/content.json'), true);
+$file_content = file_get_contents($DIR.'/../../data/content.json');
+$file_content = mb_convert_encoding($file_content, 'UTF-8', 'UTF-8');
+$content = json_decode($file_content, true);
 
 
 array_map(function($item) {

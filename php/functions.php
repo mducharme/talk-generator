@@ -2,19 +2,16 @@
 
 function getfilename($index, $text)
 {
-
-	/*$file = mb_substr($text, 0, 60);
-	$file = $index.'-'.mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $file);
-	$file = mb_ereg_replace("\s", '_', $file);
-	$file = mb_ereg_replace("([\.]{2,})", '', $file);*/
 	$file = $index;
 	return '../audio/'.$file.'.mp3';
 }
 
 function generate($index, $voice_id, $text, $MODE = 'new')
 {
+	$DIR = dirname(__FILE__);
+
 	$API_URL = 'https://api.elevenlabs.io/v1/text-to-speech/';
-	$API_KEY = file_get_contents("../data/API_KEY.txt");
+	$API_KEY = file_get_contents($DIR.'/../data/API_KEY.txt');
 	$API_VOICES = [
 		'narrator' => 'cxWJJLEFcK0W1OkOu4S6',
 		'fred' => 'DW1YBkrcZi5MiGbTCyWf',
@@ -25,7 +22,7 @@ function generate($index, $voice_id, $text, $MODE = 'new')
 	$DELAY = 2; // in seconds
 
 	$file = getfilename($index, $text);
-	if (file_exists($file) && $MODE == 'new') {
+	if (file_exists($DIR.'/'.$file) && $MODE == 'new') {
 		echo 'Skipping: file '.$file.' already exists.'."\n";
 		return;
 	} 
@@ -68,6 +65,7 @@ function generate($index, $voice_id, $text, $MODE = 'new')
 	if ($err) {
 		echo "cURL Error #:" . $err;
 	} else {
-		file_put_contents($file, $response);
+		file_put_contents($DIR.'/'.$file, $response);
+		echo "Saved to ".$file."\n";
 	}
 }
