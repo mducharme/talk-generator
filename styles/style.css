@@ -189,3 +189,21 @@ h1 {
   visibility: visible;
   color: #dc3545; /* Red color for 'Failed to Save' */
 }
+
+/* Media query for mobile screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .avatar {
+    left:-20px;
+  }
+
+  .avatar-img {
+    width: 40px; /* Reduce avatar size on mobile */
+    height: 40px; /* Maintain aspect ratio */
+  }
+
+  .item {
+    /*display: flex;*/
+    align-items: center; /* Align avatar and text vertically on mobile */
+    padding-left: 30px; /* Add padding to accommodate the avatar */
+  }
+}
