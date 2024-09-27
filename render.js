@@ -2,6 +2,7 @@
 import { saveData } from './data.js'; // Import save function
 import { captureFocus, restoreFocus } from './focus.js'; // Import focus management functions
 import { availableVoices } from './voices.js'; // Import available voices
+import { voiceStyles } from './voicestyles.js'; // Import voice styles and avatars
 
 // Access the item list container from the DOM
 const itemList = document.getElementById('item-list');
@@ -19,9 +20,10 @@ function debounce(func, delay) {
 // Debounced version of saveData
 const debouncedSaveData = debounce(saveData, 600);
 
+
 // Function to render the list with drag-and-drop functionality
 export function renderList() {
-  captureFocus(itemList); 
+  captureFocus(itemList);
 
   itemList.innerHTML = '';
 
@@ -29,6 +31,20 @@ export function renderList() {
     const itemDiv = document.createElement('div');
     itemDiv.className = 'item';
     itemDiv.draggable = true;
+
+    // Apply voice-specific styles and avatar
+    const voiceStyle = voiceStyles[item.voice] || {};
+    itemDiv.style.backgroundColor = voiceStyle.backgroundColor || '#ffffff'; // Default to white if no style
+    itemDiv.style.color = voiceStyle.color || '#000000'; // Default to black text
+
+    // Add avatar/icon for each voice
+    const avatarDiv = document.createElement('div');
+    avatarDiv.className = 'avatar';
+    const avatarImg = document.createElement('img');
+    avatarImg.src = voiceStyle.avatar || 'https://example.com/default-avatar.png'; // Fallback to a default avatar
+    avatarImg.alt = `${item.voice} avatar`;
+    avatarImg.className = 'avatar-img';
+    avatarDiv.appendChild(avatarImg);
 
     // Drag and Drop event handlers
     itemDiv.ondragstart = () => {
@@ -56,7 +72,7 @@ export function renderList() {
     textDiv.setAttribute('aria-label', 'Editable text input');
     textDiv.setAttribute('role', 'textbox');
     textDiv.oninput = () => {
-      updateItem(index, 'text', textDiv.innerText); 
+      updateItem(index, 'text', textDiv.innerText);
     };
 
     // Create editable input for the identifier (ID)
@@ -65,7 +81,7 @@ export function renderList() {
     idInput.value = item.id;
     idInput.className = 'id-input';
     idInput.oninput = () => {
-      updateItem(index, 'id', idInput.value); 
+      updateItem(index, 'id', idInput.value);
     };
 
     // Create select dropdown for voices
@@ -81,7 +97,17 @@ export function renderList() {
     });
 
     voiceSelect.onchange = () => {
-      updateItem(index, 'voice', parseInt(voiceSelect.value));
+      updateItem(index, 'voice', voiceSelect.value); // Update the voice in the data
+
+      // Get the new voice styles based on the selected voice
+      const newVoiceStyle = voiceStyles[voiceSelect.value] || {};
+
+      // Update the item's background color and text color
+      itemDiv.style.backgroundColor = newVoiceStyle.backgroundColor || '#ffffff'; 
+      itemDiv.style.color = newVoiceStyle.color || '#000000'; 
+
+      // Update the avatar image
+      avatarImg.src = newVoiceStyle.avatar || 'https://upload.wikimedia.org/wikipedia/commons/7/71/Black.png'; 
     };
 
     // Create delete button
@@ -96,10 +122,11 @@ export function renderList() {
     addNewBtn.textContent = 'Add New';
     addNewBtn.className = 'add-new-btn';
     addNewBtn.onclick = () => {
-      addNewItem(index, item.id); 
+      addNewItem(index, item.id);
     };
 
-    // Append elements to the item div
+    // Append avatar first, then text and controls
+    itemDiv.appendChild(avatarDiv); // Append the avatar first
     itemDiv.appendChild(textDiv);
     itemDiv.appendChild(idInput);
     itemDiv.appendChild(voiceSelect);

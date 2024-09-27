@@ -4,11 +4,11 @@
 function getfilename($index, $text)
 {
 
-	$file = mb_substr($text, 0, 60);
+	/*$file = mb_substr($text, 0, 60);
 	$file = $index.'-'.mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $file);
 	$file = mb_ereg_replace("\s", '_', $file);
-	$file = mb_ereg_replace("([\.]{2,})", '', $file);
-	
+	$file = mb_ereg_replace("([\.]{2,})", '', $file);*/
+	$file = $index;
 	return 'audio/'.$file.'.mp3';
 }
 
@@ -20,10 +20,7 @@ function generate($index, $voice_id, $text)
 		'narrator' => 'cxWJJLEFcK0W1OkOu4S6',
 		'fred' => 'DW1YBkrcZi5MiGbTCyWf',
 		'mat' => '3uuXaGvmqoN4gRVms3Lp',
-
-		"narrator2" => 'BHuZa353O0daphwcABkV',
-		'fred2' => 'pnst7EfzAnca9yf18162',
-		'mat2' => 'KeuF31OPIlIeZkFQDPo6'
+		"narrator2" => 'pqHfZKP75CvOlQylNhV4'
 	];
 
 	$MODE = 'new'; // "all" or "new" for new-only.
