@@ -72,7 +72,16 @@ h1 {
   border: none;
   cursor: pointer;
 
+  opacity: 0;
+  visibility: hidden;
+
   transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Show buttons when hovering over an item */
+.item:hover button {
+  opacity: 1;
+  visibility: visible;
 }
 
 .item button:hover {
