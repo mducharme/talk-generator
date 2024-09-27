@@ -202,8 +202,49 @@ h1 {
   }
 
   .item {
-    /*display: flex;*/
     align-items: center; /* Align avatar and text vertically on mobile */
     padding-left: 30px; /* Add padding to accommodate the avatar */
   }
+}.playing-item {
+  border: 2px solid #007bff; /* Blue border for the playing item */
+  background-color: #f0f8ff; /* Light blue background */
+}
+
+#global-stop-btn {
+  position: fixed; /* Stays fixed at the bottom-left */
+  bottom: 20px;    /* 20px from the bottom of the screen */
+  left: 20px;      /* 20px from the left of the screen */
+  background-color: #dc3545; /* Red background */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+#global-stop-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-indicator {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }

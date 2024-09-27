@@ -2,41 +2,30 @@
 import { captureFocus, restoreFocus } from './focus.js'; 
 import { availableVoices } from './voices.js'; 
 import { voiceStyles } from './voicestyles.js'; 
-import { generateAudio, checkAudioExists } from './audio.js';
+import { generateAudio, checkAudioExists, setAudioElements, playAll } from './audio.js';
+import { debounce, generateIdentifier } from './utils.js';
+
+const audioElements = [];
 
 // Access the item list container from the DOM
 const itemList = document.getElementById('item-list');
 
-function debounce(func, delay) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-}
-
 // Debounced version of saveData
 const debouncedSaveData = debounce(saveData, 600);
-
-// Function to render the list with drag-and-drop functionality
 export function renderList() {
   captureFocus(itemList);
-
   itemList.innerHTML = '';
+  audioElements.length = 0; // Reset audio elements
 
   data.forEach((item, index) => {
     const itemDiv = document.createElement('div');
     itemDiv.className = 'item';
     itemDiv.draggable = true;
 
-    // Apply voice-specific styles and avatar
     const voiceStyle = voiceStyles[item.voice] || {};
-    itemDiv.style.backgroundColor = voiceStyle.backgroundColor || '#ffffff'; // Default to white
-    itemDiv.style.color = voiceStyle.color || '#000000'; // Default to black text
+    itemDiv.style.backgroundColor = voiceStyle.backgroundColor || '#ffffff';
+    itemDiv.style.color = voiceStyle.color || '#000000';
 
-    // Add avatar/icon for each voice
     const avatarDiv = document.createElement('div');
     avatarDiv.className = 'avatar';
     const avatarImg = document.createElement('img');
@@ -45,27 +34,18 @@ export function renderList() {
     avatarImg.className = 'avatar-img';
     avatarDiv.appendChild(avatarImg);
 
-    // Create contenteditable div for text input
     const textDiv = document.createElement('div');
     textDiv.contentEditable = true;
     textDiv.innerText = item.text;
     textDiv.className = 'text-editable';
-    textDiv.setAttribute('aria-label', 'Editable text input');
-    textDiv.setAttribute('role', 'textbox');
-    textDiv.oninput = () => {
-      updateItem(index, 'text', textDiv.innerText);
-    };
+    textDiv.oninput = () => updateItem(index, 'text', textDiv.innerText);
 
-    // Create editable input for the identifier (ID)
     const idInput = document.createElement('input');
     idInput.type = 'text';
     idInput.value = item.id;
     idInput.className = 'id-input';
-    idInput.oninput = () => {
-      updateItem(index, 'id', idInput.value);
-    };
+    idInput.oninput = () => updateItem(index, 'id', idInput.value);
 
-    // Create select dropdown for voices
     const voiceSelect = document.createElement('select');
     availableVoices.forEach(voice => {
       const option = document.createElement('option');
@@ -79,76 +59,75 @@ export function renderList() {
 
     voiceSelect.onchange = () => {
       updateItem(index, 'voice', voiceSelect.value);
-
-      // Update the item's background color and avatar when the voice changes
       const newVoiceStyle = voiceStyles[voiceSelect.value] || {};
       itemDiv.style.backgroundColor = newVoiceStyle.backgroundColor || '#ffffff';
       itemDiv.style.color = newVoiceStyle.color || '#000000';
       avatarImg.src = newVoiceStyle.avatar || 'https://example.com/default-avatar.png';
     };
-    
-    // Create delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Delete';
-    deleteBtn.onclick = () => {
-      deleteItem(index);
-    };
 
-    // Create "Add New" button to add a new item after the current one
-    const addNewBtn = document.createElement('button');
-    addNewBtn.textContent = 'Add New';
-    addNewBtn.className = 'add-new-btn';
-    addNewBtn.onclick = () => {
-      addNewItem(index, item.id);
-    };
-
-    // Create button to generate MP3
+    // Generate MP3 button with feedback
     const generateBtn = document.createElement('button');
     generateBtn.textContent = 'Generate MP3';
-    generateBtn.onclick = () => {
-      generateAudio(item.id); // Call function to generate audio
-    };
 
-    // Create button to play MP3
-    const playBtn = document.createElement('button');
-    playBtn.textContent = 'Play';
-    playBtn.disabled = true; // Initially disabled, until audio is verified to exist
-    playBtn.style.display = 'none';
-
-    // Audio element to play the MP3a
+    // Create the audio element
     const audioElement = document.createElement('audio');
     audioElement.controls = true;
-    audioElement.style.display = 'none'; // Initially hidden
+    audioElement.style.display = 'none';
 
-    // Check if the MP3 file exists and enable the play button if available
-    /*checkAudioExists(item.id).then(exists => {
+    // Check if MP3 exists, update audio element
+    checkAudioExists(item.id).then(exists => {
       if (exists) {
-        playBtn.disabled = false;
-        playBtn.onclick = () => {
-          audioElement.src = `audio/${item.id}.mp3`; // Set audio source
-          audioElement.style.display = 'block'; // Show the audio player
-          audioElement.play();
-        };
+        audioElement.src = `audio/${item.id}.mp3`;
+     
       }
-    });*/
+    });
 
+    audioElements.push(audioElement); 
 
+    // Generate MP3 button onclick logic
+    generateBtn.onclick = async () => {
+      const originalText = generateBtn.textContent; 
+      generateBtn.disabled = true; 
+      generateBtn.textContent = 'Loading...'; 
 
+      try {
+        const success = await generateAudio(item.id); 
+        if (success) {
+          generateBtn.textContent = '✔ Success'; 
+          // Update the audio element with the newly generated MP3
+          audioElement.src = `audio/${item.id}.mp3`;
+        } else {
+          throw new Error('Failed to generate audio');
+        }
+      } catch (error) {
+        generateBtn.textContent = '✖ Failed'; 
+        console.error('Error generating MP3:', error);
+      } finally {
+        // Reset the button text back to "Generate MP3" after 5 seconds
+        setTimeout(() => {
+          generateBtn.textContent = originalText;
+          generateBtn.disabled = false; 
+        }, 5000);
+      }
+    };
 
-    // Append avatar first, then text and controls
-    itemDiv.appendChild(avatarDiv); // Append the avatar first
+    const playBtn = document.createElement('button');
+    playBtn.textContent = 'Play';
+    playBtn.onclick = () => {
+      playAll(index); // Start playing from this item and go sequentially
+    };
+
+    itemDiv.appendChild(avatarDiv);
     itemDiv.appendChild(textDiv);
     itemDiv.appendChild(idInput);
     itemDiv.appendChild(voiceSelect);
-    itemDiv.appendChild(deleteBtn);
-    itemDiv.appendChild(addNewBtn);
-    itemDiv.appendChild(generateBtn); // Append generate button
-    itemDiv.appendChild(playBtn); // Append play button
-    itemDiv.appendChild(audioElement); // Append audio element
-
+    itemDiv.appendChild(generateBtn);
+    itemDiv.appendChild(playBtn);
+    itemDiv.appendChild(audioElement);
     itemList.appendChild(itemDiv);
   });
 
+  setAudioElements(audioElements); // Set global audio elements for sequential play
   restoreFocus(itemList);
 }
 
@@ -176,27 +155,6 @@ export function addNewItem(afterIndex, currentId) {
   saveData(data);
 }
 
-// Helper function to generate unique identifiers based on current ID
-function generateIdentifier(currentId) {
-  const [part0, part1, part2] = currentId.split("-").map(Number); // Parse once
-
-  let newPart2 = part2 + 1;
-  let newPart1 = part1;
-  let newPart0 = part0;
-
-  if (newPart2 > 99) {
-    newPart2 = 0;
-    newPart1 += 1;
-  }
-  if (newPart1 > 99) {
-    newPart1 = 0;
-    newPart0 += 1;
-  }
-
-  // Return the new incremented ID
-  return `${newPart0.toString()}-${newPart1.toString().padStart(2, "0")}-${newPart2.toString().padStart(2, "0")}`;
-}
-
 // Function to reorder items after drag-and-drop
 function reorderItems(fromIndex, toIndex) {
   const movedItem = data.splice(fromIndex, 1)[0]; // Remove the dragged item
@@ -216,4 +174,3 @@ function reorderItems(fromIndex, toIndex) {
 
   saveData(data);
 }
-
