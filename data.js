@@ -16,7 +16,7 @@ export function loadData() {
       return data;
     })
     .catch(error => {
-      console.error('Error loading data:', error);
+      console.error('Error loading data:', error.message);
     });
 }
 
@@ -37,6 +37,6 @@ export function saveData(updatedData) {
     }
   })
   .catch(error => {
-    console.error('Error saving data:', error);
+    console.error('Error saving data:', error.message);
   });
 }

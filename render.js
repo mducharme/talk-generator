@@ -1,18 +1,29 @@
-// render.js
-
-import { data } from './data.js'; // Import data array
+﻿import { data } from './data.js'; // Import data array
 import { saveData } from './data.js'; // Import save function
 import { captureFocus, restoreFocus } from './focus.js'; // Import focus management functions
-import { availableVoices } from './voices.js';
+import { availableVoices } from './voices.js'; // Import available voices
 
 // Access the item list container from the DOM
 const itemList = document.getElementById('item-list');
 
+function debounce(func, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+}
+
+// Debounced version of saveData
+const debouncedSaveData = debounce(saveData, 600);
+
 // Function to render the list with drag-and-drop functionality
 export function renderList() {
-  captureFocus(); // Capture the current focus before rendering
+  captureFocus(itemList); 
 
-  itemList.innerHTML = ''; // Clear the current list
+  itemList.innerHTML = '';
 
   data.forEach((item, index) => {
     const itemDiv = document.createElement('div');
@@ -35,7 +46,6 @@ export function renderList() {
 
     itemDiv.ondrop = () => {
       reorderItems(draggedItemIndex, index); // Reorder the items when dropped
-      saveData(data); // Auto-save after reordering
     };
 
     // Create contenteditable div for text input
@@ -43,9 +53,10 @@ export function renderList() {
     textDiv.contentEditable = true;
     textDiv.innerText = item.text;
     textDiv.className = 'text-editable';
+    textDiv.setAttribute('aria-label', 'Editable text input');
+    textDiv.setAttribute('role', 'textbox');
     textDiv.oninput = () => {
-      updateItem(index, 'text', textDiv.innerText); // Update the text value
-      saveData(data); // Auto-save after text changes
+      updateItem(index, 'text', textDiv.innerText); 
     };
 
     // Create editable input for the identifier (ID)
@@ -54,8 +65,7 @@ export function renderList() {
     idInput.value = item.id;
     idInput.className = 'id-input';
     idInput.oninput = () => {
-      updateItem(index, 'id', idInput.value); // Update the ID value
-      saveData(data); // Auto-save after ID changes
+      updateItem(index, 'id', idInput.value); 
     };
 
     // Create select dropdown for voices
@@ -71,16 +81,22 @@ export function renderList() {
     });
 
     voiceSelect.onchange = () => {
-      updateItem(index, 'voice', parseInt(voiceSelect.value)); // Update the voice selection
-      saveData(data); // Auto-save after voice changes
+      updateItem(index, 'voice', parseInt(voiceSelect.value));
     };
 
     // Create delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
     deleteBtn.onclick = () => {
-      deleteItem(index); // Delete the item
-      saveData(data); // Auto-save after deletion
+      deleteItem(index);
+    };
+
+    // Create "Add New" button to add a new item after the current one
+    const addNewBtn = document.createElement('button');
+    addNewBtn.textContent = 'Add New';
+    addNewBtn.className = 'add-new-btn';
+    addNewBtn.onclick = () => {
+      addNewItem(index, item.id); 
     };
 
     // Append elements to the item div
@@ -88,57 +104,76 @@ export function renderList() {
     itemDiv.appendChild(idInput);
     itemDiv.appendChild(voiceSelect);
     itemDiv.appendChild(deleteBtn);
+    itemDiv.appendChild(addNewBtn); // Append the "Add New" button
 
     // Append the item div to the itemList
     itemList.appendChild(itemDiv);
   });
 
-  restoreFocus(); // Restore focus after rendering
+  restoreFocus(itemList);
 }
 
 // Function to update item in data array
 export function updateItem(index, field, value) {
   data[index][field] = value;
-}
-
-// Function to add a new item
-export function addNewItem() {
-  const newId = generateIdentifier(); // Generate a unique identifier for the new item
-  data.push({ id: newId, text: '', voice: availableVoices[0].id }); // Default to the first available voice ID
-  renderList(); // Re-render the list
-  saveData(data); // Save after adding new item
+  debouncedSaveData(data); 
 }
 
 // Function to delete an item
-export function deleteItem(index) {
-  data.splice(index, 1); // Remove the item from the data array
-  renderList(); // Re-render the list
-  saveData(data); // Save after deleting an item
+function deleteItem(index) {
+  data.splice(index, 1);
+  renderList();
+  debouncedSaveData(data); 
 }
 
-// Helper function to generate unique identifiers
-function generateIdentifier() {
-  const lastItem = data[data.length - 1];
-  const lastId = lastItem ? lastItem.id : "0-00-00";
-  const parts = lastId.split("-").map(Number);
+// Function to add a new item after a given index
+export function addNewItem(afterIndex, currentId) {
+  const newId = generateIdentifier(currentId); // Generate a unique identifier based on the current item ID
+  const newItem = { id: newId, text: '', voice: availableVoices[0].id }; // Default to the first available voice ID
 
-  // Increment the identifier (e.g., "0-00-01" becomes "0-00-02")
-  parts[2] = parts[2] + 1;
-  if (parts[2] > 99) {
-    parts[2] = 0;
-    parts[1] += 1;
+  data.splice(afterIndex + 1, 0, newItem);
+
+  renderList();
+  saveData(data);
+}
+
+// Helper function to generate unique identifiers based on current ID
+function generateIdentifier(currentId) {
+  const [part0, part1, part2] = currentId.split("-").map(Number); // Parse once
+
+  let newPart2 = part2 + 1;
+  let newPart1 = part1;
+  let newPart0 = part0;
+
+  if (newPart2 > 99) {
+    newPart2 = 0;
+    newPart1 += 1;
   }
-  if (parts[1] > 99) {
-    parts[1] = 0;
-    parts[0] += 1;
+  if (newPart1 > 99) {
+    newPart1 = 0;
+    newPart0 += 1;
   }
 
-  return `${parts[0].toString().padStart(2, "0")}-${parts[1].toString().padStart(2, "0")}-${parts[2].toString().padStart(2, "0")}`;
+  // Return the new incremented ID
+  return `${newPart0.toString().padStart(2, "0")}-${newPart1.toString().padStart(2, "0")}-${newPart2.toString().padStart(2, "0")}`;
 }
 
 // Function to reorder items after drag-and-drop
 function reorderItems(fromIndex, toIndex) {
   const movedItem = data.splice(fromIndex, 1)[0]; // Remove the dragged item
   data.splice(toIndex, 0, movedItem); // Insert the dragged item at the new position
-  renderList(); // Re-render the list to reflect changes
+
+  const fromItem = document.querySelector(`.item[data-index="${fromIndex}"]`);
+  const toItem = document.querySelector(`.item[data-index="${toIndex}"]`);
+
+  // Reposition the DOM elements without re-rendering everything
+  if (fromItem && toItem) {
+    if (fromIndex < toIndex) {
+      itemList.insertBefore(fromItem, toItem.nextSibling);
+    } else {
+      itemList.insertBefore(fromItem, toItem);
+    }
+  }
+
+  saveData(data);
 }

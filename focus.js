@@ -1,7 +1,7 @@
 // focus.js
 let focusedItem = null;
 
-export function captureFocus() {
+export function captureFocus(itemList) {
   const activeElement = document.activeElement;
   const parentDiv = activeElement.closest('.item');
   if (parentDiv) {
@@ -22,7 +22,7 @@ export function captureFocus() {
   }
 }
 
-export function restoreFocus() {
+export function restoreFocus(itemList) {
   if (focusedItem) {
     const { index, field, caretPosition } = focusedItem;
     const itemDiv = itemList.children[index];

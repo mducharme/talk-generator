@@ -66,14 +66,30 @@ h1 {
 
 .item button {
   padding: 5px 10px;
+  margin-right: 10px;
   background-color: #dc3545;
   color: white;
   border: none;
   cursor: pointer;
+
+  transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
 .item button:hover {
   background-color: #c82333;
+}
+
+.item .add-new-btn {
+  background-color: #4CAF50;
+
+}
+
+.item .add-new-btn:hover {
+  background-color: #45a049;
+}
+
+.item .add-new-btn:active {
+  background-color: #3e8e41;
 }
 
 .id-input {
