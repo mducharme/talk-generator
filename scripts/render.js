@@ -1,8 +1,8 @@
-﻿import { data } from './data.js'; // Import data array
-import { saveData } from './data.js'; // Import save function
-import { captureFocus, restoreFocus } from './focus.js'; // Import focus management functions
-import { availableVoices } from './voices.js'; // Import available voices
-import { voiceStyles } from './voicestyles.js'; // Import voice styles and avatars
+﻿import { data, saveData } from './data.js';
+import { captureFocus, restoreFocus } from './focus.js'; 
+import { availableVoices } from './voices.js'; 
+import { voiceStyles } from './voicestyles.js'; 
+import { generateAudio, checkAudioExists } from './audio.js';
 
 // Access the item list container from the DOM
 const itemList = document.getElementById('item-list');
@@ -20,7 +20,6 @@ function debounce(func, delay) {
 // Debounced version of saveData
 const debouncedSaveData = debounce(saveData, 600);
 
-
 // Function to render the list with drag-and-drop functionality
 export function renderList() {
   captureFocus(itemList);
@@ -34,35 +33,17 @@ export function renderList() {
 
     // Apply voice-specific styles and avatar
     const voiceStyle = voiceStyles[item.voice] || {};
-    itemDiv.style.backgroundColor = voiceStyle.backgroundColor || '#ffffff'; // Default to white if no style
+    itemDiv.style.backgroundColor = voiceStyle.backgroundColor || '#ffffff'; // Default to white
     itemDiv.style.color = voiceStyle.color || '#000000'; // Default to black text
 
     // Add avatar/icon for each voice
     const avatarDiv = document.createElement('div');
     avatarDiv.className = 'avatar';
     const avatarImg = document.createElement('img');
-    avatarImg.src = voiceStyle.avatar || 'https://example.com/default-avatar.png'; // Fallback to a default avatar
+    avatarImg.src = voiceStyle.avatar || 'https://example.com/default-avatar.png';
     avatarImg.alt = `${item.voice} avatar`;
     avatarImg.className = 'avatar-img';
     avatarDiv.appendChild(avatarImg);
-
-    // Drag and Drop event handlers
-    itemDiv.ondragstart = () => {
-      draggedItemIndex = index; // Store the index of the dragged item
-      itemDiv.classList.add('dragging'); // Add dragging class for visual feedback
-    };
-
-    itemDiv.ondragend = () => {
-      itemDiv.classList.remove('dragging'); // Remove dragging class when drop is finished
-    };
-
-    itemDiv.ondragover = (event) => {
-      event.preventDefault(); // Allow the item to be dropped
-    };
-
-    itemDiv.ondrop = () => {
-      reorderItems(draggedItemIndex, index); // Reorder the items when dropped
-    };
 
     // Create contenteditable div for text input
     const textDiv = document.createElement('div');
@@ -97,19 +78,15 @@ export function renderList() {
     });
 
     voiceSelect.onchange = () => {
-      updateItem(index, 'voice', voiceSelect.value); // Update the voice in the data
+      updateItem(index, 'voice', voiceSelect.value);
 
-      // Get the new voice styles based on the selected voice
+      // Update the item's background color and avatar when the voice changes
       const newVoiceStyle = voiceStyles[voiceSelect.value] || {};
-
-      // Update the item's background color and text color
-      itemDiv.style.backgroundColor = newVoiceStyle.backgroundColor || '#ffffff'; 
-      itemDiv.style.color = newVoiceStyle.color || '#000000'; 
-
-      // Update the avatar image
-      avatarImg.src = newVoiceStyle.avatar || 'https://upload.wikimedia.org/wikipedia/commons/7/71/Black.png'; 
+      itemDiv.style.backgroundColor = newVoiceStyle.backgroundColor || '#ffffff';
+      itemDiv.style.color = newVoiceStyle.color || '#000000';
+      avatarImg.src = newVoiceStyle.avatar || 'https://example.com/default-avatar.png';
     };
-
+    
     // Create delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
@@ -125,15 +102,50 @@ export function renderList() {
       addNewItem(index, item.id);
     };
 
+    // Create button to generate MP3
+    const generateBtn = document.createElement('button');
+    generateBtn.textContent = 'Generate MP3';
+    generateBtn.onclick = () => {
+      generateAudio(item.id); // Call function to generate audio
+    };
+
+    // Create button to play MP3
+    const playBtn = document.createElement('button');
+    playBtn.textContent = 'Play';
+    playBtn.disabled = true; // Initially disabled, until audio is verified to exist
+    playBtn.style.display = 'none';
+
+    // Audio element to play the MP3a
+    const audioElement = document.createElement('audio');
+    audioElement.controls = true;
+    audioElement.style.display = 'none'; // Initially hidden
+
+    // Check if the MP3 file exists and enable the play button if available
+    /*checkAudioExists(item.id).then(exists => {
+      if (exists) {
+        playBtn.disabled = false;
+        playBtn.onclick = () => {
+          audioElement.src = `audio/${item.id}.mp3`; // Set audio source
+          audioElement.style.display = 'block'; // Show the audio player
+          audioElement.play();
+        };
+      }
+    });*/
+
+
+
+
     // Append avatar first, then text and controls
     itemDiv.appendChild(avatarDiv); // Append the avatar first
     itemDiv.appendChild(textDiv);
     itemDiv.appendChild(idInput);
     itemDiv.appendChild(voiceSelect);
     itemDiv.appendChild(deleteBtn);
-    itemDiv.appendChild(addNewBtn); // Append the "Add New" button
+    itemDiv.appendChild(addNewBtn);
+    itemDiv.appendChild(generateBtn); // Append generate button
+    itemDiv.appendChild(playBtn); // Append play button
+    itemDiv.appendChild(audioElement); // Append audio element
 
-    // Append the item div to the itemList
     itemList.appendChild(itemDiv);
   });
 
@@ -204,3 +216,4 @@ function reorderItems(fromIndex, toIndex) {
 
   saveData(data);
 }
+

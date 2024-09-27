@@ -4,7 +4,7 @@ export let data = [];
 
 // Function to load data from the API
 export function loadData() {
-  return fetch('content.php')
+  return fetch('php/content.php')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to load data');
@@ -24,7 +24,7 @@ export function loadData() {
 export function saveData(updatedData) {
   const jsonData = JSON.stringify(updatedData);
 
-  return fetch('save.php', {
+  return fetch('php/save.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ $data = json_decode($json, true);
 
 if (json_last_error() === JSON_ERROR_NONE) {
 
-    if (file_put_contents('content.json', json_encode($data, JSON_PRETTY_PRINT))) {
+    if (file_put_contents('../data/content.json', json_encode($data, JSON_PRETTY_PRINT))) {
         echo json_encode(['status' => 'success', 'message' => 'Data saved successfully.']);
     } else {
         http_response_code(500);

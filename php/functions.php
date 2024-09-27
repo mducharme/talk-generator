@@ -1,5 +1,4 @@
 <?php
-(PHP_SAPI !== 'cli' || isset($_SERVER['HTTP_USER_AGENT'])) && die('cli only');
 
 function getfilename($index, $text)
 {
@@ -9,21 +8,19 @@ function getfilename($index, $text)
 	$file = mb_ereg_replace("\s", '_', $file);
 	$file = mb_ereg_replace("([\.]{2,})", '', $file);*/
 	$file = $index;
-	return 'audio/'.$file.'.mp3';
+	return '../audio/'.$file.'.mp3';
 }
 
-function generate($index, $voice_id, $text)
+function generate($index, $voice_id, $text, $MODE = 'new')
 {
 	$API_URL = 'https://api.elevenlabs.io/v1/text-to-speech/';
-	$API_KEY = file_get_contents("API_KEY.txt");
+	$API_KEY = file_get_contents("../data/API_KEY.txt");
 	$API_VOICES = [
 		'narrator' => 'cxWJJLEFcK0W1OkOu4S6',
 		'fred' => 'DW1YBkrcZi5MiGbTCyWf',
 		'mat' => '3uuXaGvmqoN4gRVms3Lp',
 		"narrator2" => 'pqHfZKP75CvOlQylNhV4'
 	];
-
-	$MODE = 'new'; // "all" or "new" for new-only.
 
 	$DELAY = 2; // in seconds
 
@@ -74,15 +71,3 @@ function generate($index, $voice_id, $text)
 		file_put_contents($file, $response);
 	}
 }
-
-
-$content = json_decode(file_get_contents('content.json'), true);
-
-
-array_map(function($item) {
-	generate($item['id'], $item['voice'], $item['text']);
-
-}, $content);
-
-
-echo " To join all mp3 on linux: run \nmp3wrap talk.mp3 `ls -1 audio/*.mp3 | sort`\n";
