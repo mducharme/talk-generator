@@ -49,9 +49,7 @@ function generate($index, $voice_id, $text, $force=false)
     $postData = json_encode([
         "voice_settings" => [
             "stability" => 0.5,
-            "similarity_boost" => 0.75,
-            'style'=> 0,
-            'use_speaker_boost' => false
+            "similarity_boost" => 0.75
         ],
         "text" => $text
     ]);
