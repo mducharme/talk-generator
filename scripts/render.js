@@ -5,10 +5,11 @@ import { voiceStyles } from './voicestyles.js';
 import { generateAudio, checkAudioExists, setAudioElements, playAll } from './audio.js';
 import { debounce, generateIdentifier } from './utils.js';
 
-const audioElements = [];
-
-// Access the item list container from the DOM
 const itemList = document.getElementById('item-list');
+const totalDurationElement = document.getElementById('total-duration');
+let audioElements = [];
+let totalDuration = 0;
+
 
 // Debounced version of saveData
 const debouncedSaveData = debounce(saveData, 600);
@@ -16,6 +17,7 @@ export function renderList() {
   captureFocus(itemList);
   itemList.innerHTML = '';
   audioElements.length = 0; // Reset audio elements
+  totalDuration = 0; // Reset total duration
 
   data.forEach((item, index) => {
     const itemDiv = document.createElement('div');
@@ -78,8 +80,12 @@ export function renderList() {
     checkAudioExists(item.id).then(exists => {
       if (exists) {
         audioElement.src = `audio/${item.id}.mp3`;
-     
       }
+      // Wait until the metadata is loaded to get the duration
+        audioElement.addEventListener('loadedmetadata', () => {
+          totalDuration += audioElement.duration; // Add the audio duration
+          updateTotalDurationDisplay(); // Update the total talk length display
+        });
     });
 
     audioElements.push(audioElement); 
@@ -129,6 +135,21 @@ export function renderList() {
 
   setAudioElements(audioElements); // Set global audio elements for sequential play
   restoreFocus(itemList);
+}
+
+// Function to update the total duration display
+function updateTotalDurationDisplay() {
+  const formattedDuration = formatDuration(totalDuration);
+  totalDurationElement.textContent = `Total Talk Length: ${formattedDuration}`;
+}
+
+// Helper function to format the total duration into HH:MM:SS format
+function formatDuration(seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = Math.floor(seconds % 60);
+
+  return `${hours > 0 ? hours + ':' : ''}${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
 // Function to update item in data array
