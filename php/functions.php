@@ -30,7 +30,7 @@ function generate($index, $voice_id, $text, $force=false)
     $file = getFilename($index, $text);
     if (file_exists($DIR.'/'.$file) && !$force) {
         echo 'Skipping: file '.$file.' already exists.'."\n";
-        return;
+        return false;
     }
 
     $ch = curl_init();
@@ -77,18 +77,23 @@ function generate($index, $voice_id, $text, $force=false)
 
     curl_close($ch);
 
+    // Log the raw response for debugging
+    echo "HTTP Code: " . $httpCode . "\n";
+    echo "Response: " . $response . "\n";
+
     if ($err) {
         echo "cURL Error #:" . $err;
-        return;
+        return false;
     }
 
     // Check if HTTP status is 200 (success)
     if ($httpCode !== 200) {
         echo "Error: Received HTTP status code " . $httpCode . "\n";
-        return;
+        return false;
     }
 
     // Save the MP3 file if the response is valid
     file_put_contents($DIR.'/'.$file, $response);
     echo "Saved to ".$file."\n";
+    return true;
 }
