@@ -51,12 +51,12 @@ h1 {
 }
 
 .avatar {
-	position: absolute;
-	display: flex;
-	left:	-108px;
-	top: 64px;
-	transform: translateY(-50%); 
-	pointer-events: none;
+  position: absolute;
+  display: flex;
+  left: -108px;
+  top: 64px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .avatar-img {
@@ -67,15 +67,12 @@ h1 {
 }
 
 .text-editable {
-  flex-grow: 1; /* Make the text area take up remaining space */
+  flex-grow: 1;
 }
 
-/**/
-
-
 .item.dragging {
-  background-color: #f0f0f0; /* Light grey background for dragged item */
-  opacity: 0.7; /* Slightly transparent */
+  background-color: #f0f0f0;
+  opacity: 0.7;
 }
 
 .item input {
@@ -99,17 +96,16 @@ h1 {
   color: white;
   border: none;
   cursor: pointer;
-
   opacity: 0;
   visibility: hidden;
-
-  transition: background-color 0.3s ease; /* Smooth background color transition */
+  transition: background-color 0.3s ease;
 }
 
 .item:hover input {
   opacity: 1;
   visibility: visible;
 }
+
 .item:hover select {
   opacity: 1;
   visibility: visible;
@@ -126,7 +122,6 @@ h1 {
 
 .item .add-new-btn {
   background-color: #4CAF50;
-
 }
 
 .item .add-new-btn:hover {
@@ -150,20 +145,20 @@ h1 {
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
-  outline: none; /* Removes the blue outline when focused */
+  outline: none;
   cursor: text;
 }
 
 .text-editable:focus {
-  border-color: #007bff; /* Blue border when focused */
+  border-color: #007bff;
   background-color: #f0f8ff;
 }
 
 .save-status {
   position: fixed;
-  bottom: 10px; /* Stay 10px from the bottom of the viewport */
+  bottom: 10px;
   left: 50%;
-  transform: translateX(-50%); /* Center it horizontally */
+  transform: translateX(-50%);
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -171,65 +166,66 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  visibility: hidden; /* Initially hidden */
-  z-index: 9999; /* Ensure it stays above other elements */
+  visibility: hidden;
+  z-index: 9999;
 }
 
 .save-status.saving {
   visibility: visible;
-  color: #007bff; /* Blue color for 'Saving...' */
+  color: #007bff;
 }
 
 .save-status.saved {
   visibility: visible;
-  color: #28a745; /* Green color for 'Saved!' */
+  color: #28a745;
 }
 
 .save-status.error {
   visibility: visible;
-  color: #dc3545; /* Red color for 'Failed to Save' */
+  color: #dc3545;
 }
 
-/* Media query for mobile screens (max-width: 768px) */
 @media screen and (max-width: 768px) {
   .avatar {
-    left:-20px;
+    left: -20px;
   }
 
   .avatar-img {
-    width: 40px; /* Reduce avatar size on mobile */
-    height: 40px; /* Maintain aspect ratio */
+    width: 40px;
+    height: 40px;
   }
 
   .item {
-    align-items: center; /* Align avatar and text vertically on mobile */
-    padding-left: 30px; /* Add padding to accommodate the avatar */
+    align-items: center;
+    padding-left: 30px;
   }
-}.playing-item {
-  border: 2px solid #007bff; /* Blue border for the playing item */
-  background-color: #f0f8ff; /* Light blue background */
+}
+
+.playing-item {
+  border: 2px solid #007bff;
+  background-color: #f0f8ff;
 }
 
 #global-stop-btn {
-  position: fixed; /* Stays fixed at the bottom-left */
-  bottom: 20px;    /* 20px from the bottom of the screen */
-  left: 20px;      /* 20px from the left of the screen */
-  background-color: #dc3545; /* Red background */
-  color: white; /* White text */
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #dc3545;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 1000; /* Ensure it's on top of other elements */
+  z-index: 1000;
 }
 
 #global-stop-btn:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333;
 }
 
 .loader {
-  border: 4px solid #f3f3f3; /* Light grey */
-  border-top: 4px solid #3498db; /* Blue */
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -247,4 +243,12 @@ h1 {
   margin-left: 10px;
   font-size: 16px;
   font-weight: bold;
+}
+
+#total-duration {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin-top: 20px;
+  margin-right: 20px;
 }
