@@ -54,7 +54,7 @@ function generate($index, $voice_id, $text, $force=false)
         "text" => $text
     ]);
 
-    $contentLength = strlen($postData);
+    $contentLength = mb_strlen($postData);
 
     curl_setopt($ch, CURLOPT_URL,  $API_URL.$API_VOICES[$voice_id]);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -92,6 +92,8 @@ function generate($index, $voice_id, $text, $force=false)
         return false;
     }
 
+    // Delete previous version
+    unlink($DIR.'/'.$file);
     // Save the MP3 file if the response is valid
     file_put_contents($DIR.'/'.$file, $response);
     echo "Saved to ".$file."\n";
