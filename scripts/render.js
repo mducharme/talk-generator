@@ -13,6 +13,7 @@ let totalDuration = 0;
 
 // Debounced version of saveData
 const debouncedSaveData = debounce(saveData, 600);
+
 export function renderList() {
   captureFocus(itemList);
   itemList.innerHTML = '';
@@ -23,11 +24,29 @@ export function renderList() {
     const itemDiv = document.createElement('div');
     itemDiv.className = 'item';
     itemDiv.draggable = true;
+    itemDiv.setAttribute('data-index', index); // Add index for drag-and-drop
 
     const voiceStyle = voiceStyles[item.voice] || {};
     itemDiv.style.backgroundColor = voiceStyle.backgroundColor || '#ffffff';
     itemDiv.style.color = voiceStyle.color || '#000000';
 
+    // Handle drag-and-drop events
+    itemDiv.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', index);
+    });
+
+    itemDiv.addEventListener('dragover', (e) => {
+      e.preventDefault(); // Allow dropping
+    });
+
+    itemDiv.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const fromIndex = e.dataTransfer.getData('text');
+      const toIndex = index;
+      reorderItems(fromIndex, toIndex);
+    });
+
+    // Avatar
     const avatarDiv = document.createElement('div');
     avatarDiv.className = 'avatar';
     const avatarImg = document.createElement('img');
@@ -36,18 +55,21 @@ export function renderList() {
     avatarImg.className = 'avatar-img';
     avatarDiv.appendChild(avatarImg);
 
+    // Editable text
     const textDiv = document.createElement('div');
     textDiv.contentEditable = true;
     textDiv.innerText = item.text;
     textDiv.className = 'text-editable';
     textDiv.oninput = () => updateItem(index, 'text', textDiv.innerText);
 
+    // ID input
     const idInput = document.createElement('input');
     idInput.type = 'text';
     idInput.value = item.id;
     idInput.className = 'id-input';
     idInput.oninput = () => updateItem(index, 'id', idInput.value);
 
+    // Voice selector
     const voiceSelect = document.createElement('select');
     availableVoices.forEach(voice => {
       const option = document.createElement('option');
@@ -58,7 +80,6 @@ export function renderList() {
       }
       voiceSelect.appendChild(option);
     });
-
     voiceSelect.onchange = () => {
       updateItem(index, 'voice', voiceSelect.value);
       const newVoiceStyle = voiceStyles[voiceSelect.value] || {};
@@ -67,74 +88,84 @@ export function renderList() {
       avatarImg.src = newVoiceStyle.avatar || 'https://example.com/default-avatar.png';
     };
 
-    // Generate MP3 button with feedback
+    // Generate MP3 button
     const generateBtn = document.createElement('button');
     generateBtn.textContent = 'Generate MP3';
-
-    // Create the audio element
     const audioElement = document.createElement('audio');
     audioElement.controls = true;
     audioElement.style.display = 'none';
-
-    // Check if MP3 exists, update audio element
     checkAudioExists(item.id).then(exists => {
       if (exists) {
         audioElement.src = `audio/${item.id}.mp3`;
       }
-      // Wait until the metadata is loaded to get the duration
-        audioElement.addEventListener('loadedmetadata', () => {
-          totalDuration += audioElement.duration; // Add the audio duration
-          updateTotalDurationDisplay(); // Update the total talk length display
-        });
+      audioElement.addEventListener('loadedmetadata', () => {
+        totalDuration += audioElement.duration;
+        updateTotalDurationDisplay();
+      });
     });
-
-    audioElements.push(audioElement); 
-
-    // Generate MP3 button onclick logic
+    audioElements.push(audioElement);
     generateBtn.onclick = async () => {
-      const originalText = generateBtn.textContent; 
-      generateBtn.disabled = true; 
-      generateBtn.textContent = 'Loading...'; 
-
-      try {
-        const success = await generateAudio(item.id); 
-        if (success) {
-          generateBtn.textContent = '✔ Success'; 
-          // Update the audio element with the newly generated MP3
-          audioElement.src = `audio/${item.id}.mp3`;
-        } else {
-          throw new Error('Failed to generate audio');
-        }
-      } catch (error) {
-        generateBtn.textContent = '✖ Failed'; 
-        console.error('Error generating MP3:', error);
-      } finally {
-        // Reset the button text back to "Generate MP3" after 5 seconds
-        setTimeout(() => {
-          generateBtn.textContent = originalText;
-          generateBtn.disabled = false; 
-        }, 5000);
-      }
+      await generateAudioForItem(generateBtn, audioElement, item.id);
     };
 
+    // Play button
     const playBtn = document.createElement('button');
-    playBtn.textContent = 'Play';
-    playBtn.onclick = () => {
-      playAll(index); // Start playing from this item and go sequentially
-    };
+    playBtn.textContent = 'Play'; // Alternatively, 🎧, 🎶, 🔊, ⏯️
+    playBtn.onclick = () => playAll(index);
+    
+    // Add New button (this will add a new item below the current one)
+    const addNewBtn = document.createElement('button');
+    addNewBtn.textContent = 'Add'; // Alternatively, 📝, 🆕, 📥
+    addNewBtn.onclick = () => addNewItem(index, item.id);
 
+    // Delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-button';
+    deleteBtn.textContent = 'Delete'; // Alternatively, ✂️, 🗙, 🗑️, or 🚫
+    deleteBtn.onclick = () => deleteItem(index);
+
+
+    // Append all elements
     itemDiv.appendChild(avatarDiv);
     itemDiv.appendChild(textDiv);
     itemDiv.appendChild(idInput);
     itemDiv.appendChild(voiceSelect);
     itemDiv.appendChild(generateBtn);
     itemDiv.appendChild(playBtn);
+    itemDiv.appendChild(addNewBtn);
+    itemDiv.appendChild(deleteBtn);
     itemDiv.appendChild(audioElement);
     itemList.appendChild(itemDiv);
   });
 
   setAudioElements(audioElements); // Set global audio elements for sequential play
   restoreFocus(itemList);
+}
+
+
+// Function to generate audio for an item and update the button/audio element
+async function generateAudioForItem(generateBtn, audioElement, id) {
+  const originalText = generateBtn.textContent;
+  generateBtn.disabled = true;
+  generateBtn.textContent = 'Loading...';
+
+  try {
+    const success = await generateAudio(id);
+    if (success) {
+      generateBtn.textContent = '✔ Success';
+      audioElement.src = `audio/${id}.mp3`;
+    } else {
+      throw new Error('Failed to generate audio');
+    }
+  } catch (error) {
+    generateBtn.textContent = '✖ Failed';
+    console.error('Error generating MP3:', error);
+  } finally {
+    setTimeout(() => {
+      generateBtn.textContent = originalText;
+      generateBtn.disabled = false;
+    }, 5000);
+  }
 }
 
 // Function to update the total duration display
