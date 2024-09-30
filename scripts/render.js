@@ -3,7 +3,7 @@ import { captureFocus, restoreFocus } from './focus.js';
 import { availableVoices } from './voices.js'; 
 import { voiceStyles } from './voicestyles.js'; 
 import { generateAudio, checkAudioExists, setAudioElements, playAll } from './audio.js';
-import { debounce, generateIdentifier } from './utils.js';
+import { debounce, generateIdentifier, convertTagsToBreaks } from './utils.js';
 
 const itemList = document.getElementById('item-list');
 const totalDurationElement = document.getElementById('total-duration');
@@ -11,9 +11,11 @@ let audioElements = [];
 let totalDuration = 0;
 
 
+
 // Debounced version of saveData
 const debouncedSaveData = debounce(saveData, 600);
 
+// Function to render the list with updated text transformations
 export function renderList() {
   captureFocus(itemList);
   itemList.innerHTML = '';
@@ -55,10 +57,10 @@ export function renderList() {
     avatarImg.className = 'avatar-img';
     avatarDiv.appendChild(avatarImg);
 
-    // Editable text
+    // Editable text (convert <break> tags to [duration] for UI display)
     const textDiv = document.createElement('div');
     textDiv.contentEditable = true;
-    textDiv.innerText = item.text;
+    textDiv.innerText = convertTagsToBreaks(item.text); // Show [0.4s] in UI
     textDiv.className = 'text-editable';
     textDiv.oninput = () => updateItem(index, 'text', textDiv.innerText);
 
@@ -110,20 +112,19 @@ export function renderList() {
 
     // Play button
     const playBtn = document.createElement('button');
-    playBtn.textContent = 'Play'; // Alternatively, 🎧, 🎶, 🔊, ⏯️
+    playBtn.textContent = 'Play'; 
     playBtn.onclick = () => playAll(index);
     
     // Add New button (this will add a new item below the current one)
     const addNewBtn = document.createElement('button');
-    addNewBtn.textContent = 'Add'; // Alternatively, 📝, 🆕, 📥
+    addNewBtn.textContent = 'Add'; 
     addNewBtn.onclick = () => addNewItem(index, item.id);
 
     // Delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'delete-button';
-    deleteBtn.textContent = 'Delete'; // Alternatively, ✂️, 🗙, 🗑️, or 🚫
+    deleteBtn.textContent = 'Delete'; 
     deleteBtn.onclick = () => deleteItem(index);
-
 
     // Append all elements
     itemDiv.appendChild(avatarDiv);
@@ -138,10 +139,9 @@ export function renderList() {
     itemList.appendChild(itemDiv);
   });
 
-  setAudioElements(audioElements); // Set global audio elements for sequential play
+  setAudioElements(audioElements); 
   restoreFocus(itemList);
 }
-
 
 // Function to generate audio for an item and update the button/audio element
 async function generateAudioForItem(generateBtn, audioElement, id) {
@@ -153,7 +153,8 @@ async function generateAudioForItem(generateBtn, audioElement, id) {
     const success = await generateAudio(id);
     if (success) {
       generateBtn.textContent = '✔ Success';
-      audioElement.src = `audio/${id}.mp3`;
+      audioElement.src = `audio/${id}.mp3?ts=${new Date().getTime()}`;
+      audioElement.load();
     } else {
       throw new Error('Failed to generate audio');
     }
@@ -185,8 +186,12 @@ function formatDuration(seconds) {
 
 // Function to update item in data array
 export function updateItem(index, field, value) {
+  // If updating text, convert <break time="0.4s" /> to [0.4s] for display in the UI
+  if (field === 'text') {
+    value = convertTagsToBreaks(value);
+  }
   data[index][field] = value;
-  debouncedSaveData(data); 
+  debouncedSaveData(data);
 }
 
 // Function to delete an item

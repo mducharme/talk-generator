@@ -10,6 +10,7 @@ if(!$json) {
     die();
 }
 
+$json = preg_replace('/\[(\d+(\.\d+))s\]/', '<break time=\"$1\" />', $json);
 $data = json_decode($json, true);
 
 if (json_last_error() === JSON_ERROR_NONE) {
@@ -22,7 +23,7 @@ if (json_last_error() === JSON_ERROR_NONE) {
     }
 } else {
     http_response_code(400);
-    echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data.']);
+    echo json_encode(['status' => 'error', 'message' => 'Invalid JSON data: '.json_last_error_msg()]);
 }
 
 ?>

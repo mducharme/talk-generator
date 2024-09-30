@@ -1,3 +1,8 @@
+// Function to convert <break> tags back to [duration] for displaying in the UI
+export function convertTagsToBreaks(text) {
+  return text.replace(/<break time="([0-9.]+s)" \/>/g, '[$1]');
+}
+
 export function debounce(func, delay) {
   let timeout;
   return (...args) => {
