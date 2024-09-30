@@ -10,7 +10,7 @@ if(!$json) {
     die();
 }
 
-$json = preg_replace('/\[(\d+(\.\d+))s\]/', '<break time=\"$1\" />', $json);
+$json = preg_replace('/\[(\d+(\.\d+))s\]/', '<break time=\"$1s\" />', $json);
 $data = json_decode($json, true);
 
 if (json_last_error() === JSON_ERROR_NONE) {
