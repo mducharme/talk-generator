@@ -31,3 +31,9 @@ export function generateIdentifier(currentId) {
 
   return `${newPart0.toString()}-${newPart1.toString().padStart(2, "0")}-${newPart2.toString().padStart(2, "0")}`;
 }
+
+export function formatDuration(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs.toString().padStart(2, '0')}`; // Pad seconds with leading zero if necessary
+}
